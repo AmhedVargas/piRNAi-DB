@@ -27,7 +27,7 @@ Example_results
 
 **Please note that due to space limitations we just uploaded one of the resultant outputs of the pipeline. Running the main shell scripts should recreate this and all other files used for piRNAi target identification** 
 
-## Shinny implementation
+## Shiny implementation
 Each resultan bed file was treated to be incorporated into the [piRNAi app](https://wormbuilder.dev/piRNAi/). The full description of how the files were prepared and the shinny app implemented can be found [here](https://github.com/AmhedVargas/piRNAi_v2). 
 
 ## Note on finding the uniqueness of each sequence
