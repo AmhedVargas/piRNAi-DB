@@ -21,8 +21,10 @@ This repository contains custom scripts used to find 20-mer sub-sequences of *C.
 C_elegans/C_briggsae-pipeline
 - Stand-alone shell script that produces piRNA tracks
 - Custom made perl scripts required to identify unique k-mer sequences.
+
 Example_results
 - tar.gz 5MM track
+
 **Please note that due to space limitations we just uploaded one of the resultant outputs of the pipeline. Running the main shell scripts should recreate this and all other files used for piRNAi target identification** 
 
 ## Shinny implementation
