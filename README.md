@@ -1,5 +1,5 @@
 # piRNAi-DB: A collection of *C.elegans* piRNA interference (piRNAi) targets
-Piwi-interacting RNAs, or simply piRNAs, are a class of small RNAs (21 nucleotides long) that are active in the germline and aid to the regulation of gene expression. One of the mechanisms by which they can perfom this control is by targeting cytosolic mRNA transcripts. While it remains unclear which are the precise rules governing this targeting [[1](https://science.sciencemag.org/content/359/6375/587),[2](https://www.sciencedirect.com/science/article/pii/S009286741830117X)], it's quite clear that the targeting occurs by means Watson-Crick pairing and, therefore, we can assume that by altering the sequence of the piRNAs we can change their targets; indeed this have been accomplished in *C. elegans* trhough a novel method denominated piRNA interfence (piRNAi).
+Piwi-interacting RNAs, or simply piRNAs, are a class of small RNAs (21 nucleotides long) that are active in the germline and aid to the regulation of gene expression. One of the mechanisms by which they can perfom this control is by targeting cytosolic mRNA transcripts. While it remains unclear which are the precise rules governing this targeting [[1](https://science.sciencemag.org/content/359/6375/587),[2](https://www.sciencedirect.com/science/article/pii/S009286741830117X)], it's quite clear that the targeting occurs by means Watson-Crick pairing and, therefore, we can assume that by altering the sequence of the piRNAs we can change their targets. Indeed this is the basis for a novel method of germline-specific gene regulation in *C. elegans* denominated piRNA interfence (piRNAi).
 
 This repository contains custom scripts used to find 20-mer sub-sequences of *C. elegans* and *C. briggsae* transcripts that can be used as targets for piRNAi. These sequences follow the guidelines required for piRNAi targeting, those being:
 
@@ -28,7 +28,7 @@ Example_results
 **Please note that due to space limitations we just uploaded one of the resultant outputs of the pipeline. Running the main shell scripts should recreate this and all other files used for piRNAi target identification** 
 
 ## Shiny implementation
-Each resultan bed file was treated to be incorporated into the [piRNAi app](https://wormbuilder.dev/piRNAi/). The full description of how the files were prepared and the shinny app implemented can be found [here](https://github.com/AmhedVargas/piRNAi_v2). 
+Each resultant bed file was treated to be incorporated into the [piRNAi app](https://wormbuilder.dev/piRNAi/). The full description of how the files were prepared and the shinny app implemented can be found [here](https://github.com/AmhedVargas/piRNAi_v2). 
 
 ## Note on finding the uniqueness of each sequence
 Finding words a defined length that appear once in a text is a trivial matter in computation; and so it's the case of finding sequences of n base pairs (k-mer) appearing once in a genome. However, the inclusion of mis-matches makes the number of computations required to solve this problem grow exponentially [[3]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7244195) rendering almost impossible to use a deterministic solution. For this reason, our pipeline used back and forth euristic and deterministic methods to come up with the list of uniquely targeting piRNAi sequences (see below).
@@ -44,6 +44,6 @@ Finding words a defined length that appear once in a text is a trivial matter in
 - Assess uniqueness of subquences of length (20 - n) in the genome via a hash method. In other words, check for example that both 19-mers found within a 20 mer are unique (i.e. unique 20-mer that allows 1 mis-match either at the end or beginning of its sequnce). **This step is not mandatory *per se*, however, it greatly helps the following steps as it reduces the number of sequences that will be tested**
 - Find any relevant and not relevant match for each 20-mer in the genome by using blast (e-value cut off equal to 1)
 - Extract sequences that had solely one alignement satisfying the condition: size of alignment >= length of fragment - mismatches allowed (20 - n)
-- Map them back to the genome to get coordinates and repeat the procedure once again
+- Map them back to the genome to get coordinates and repeat the procedure once again until we have iterated for 5 mismatches.
 8. Finally, the resultant bed or fasta file can be filtered for GC content if needed.
 
