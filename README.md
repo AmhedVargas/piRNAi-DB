@@ -8,7 +8,7 @@ This repository contains custom scripts used to find 20-mer sub-sequences of *C.
 - We recommend the use no extreme levels of GC content; altough our pipeline does not filer these cases.
 
 ## Software and hardware requirements
-- Unix-like enviroment (Linux preffered but the pipelines can be run in macOS too).
+- Unix-like enviroment (Linux preferred but the pipelines can be run in macOS too).
 - ~ 100 GB of space in hard drive 
 - perl
 - bedtools
