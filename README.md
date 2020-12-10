@@ -34,7 +34,7 @@ Each resultant bed file was treated to be incorporated into the [piRNAi app](htt
 Finding words a defined length that appear once in a text is a trivial matter in computation; and so it's the case of finding sequences of n base pairs (k-mer) appearing once in a genome. However, the inclusion of mis-matches makes the number of computations required to solve this problem grow exponentially [[3]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7244195) making almost impossible to use a deterministic approach. For this reason, our pipeline used back and forth euristic and deterministic methods to come up with the list of uniquely targeting piRNAi sequences (see below).
 
 ## Rational progression of our piRNAi targeting algorithm
-1. Download latest genomic files (sequence and gene annotations) of *C.elegans*/*C.briggsae* from [wormbase ftp server](ftp://ftp.wormbase.org/pub/wormbase). **Note:** When the pipeline was originally conceived the version used was WS270
+1. Download latest genomic files (sequence and gene annotations) of *C.elegans*/*C.briggsae* from [wormbase ftp server](ftp://ftp.wormbase.org/pub/wormbase). **Note:** WS270 files were used when the pipeline was originally conceived for *C. elegans*, however *C.briggsae* pipeline uses WS275 files. 
 2. Extract solely the CDS of protein coding genes in fasta format.
 3. For each CDS, create the list of all 20 bp long sequences (overlapping 20-mers) targetting the reverse complement of the CDS.
 4. Determine which 20-mers are unique in the genome (both strands) allowing 0 mismatches (0MM) via a hash method.
