@@ -31,9 +31,9 @@ Example_results
 Each resultant bed file was treated to be incorporated into the [piRNAi app](https://wormbuilder.dev/piRNAi/). The full description of how the files were prepared and the shinny app implemented can be found [here](https://github.com/AmhedVargas/piRNAi_v2). 
 
 ## Note on finding the uniqueness of each sequence
-Finding words a defined length that appear once in a text is a trivial matter in computation; and so it's the case of finding sequences of n base pairs (k-mer) appearing once in a genome. However, the inclusion of mis-matches makes the number of computations required to solve this problem grow exponentially [[3]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7244195) rendering almost impossible to use a deterministic solution. For this reason, our pipeline used back and forth euristic and deterministic methods to come up with the list of uniquely targeting piRNAi sequences (see below).
+Finding words a defined length that appear once in a text is a trivial matter in computation; and so it's the case of finding sequences of n base pairs (k-mer) appearing once in a genome. However, the inclusion of mis-matches makes the number of computations required to solve this problem grow exponentially [[3]](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7244195) making almost impossible to use a deterministic approach. For this reason, our pipeline used back and forth euristic and deterministic methods to come up with the list of uniquely targeting piRNAi sequences (see below).
 
-## Rational progression of our piRNAi targetting algorithm
+## Rational progression of our piRNAi targeting algorithm
 1. Download latest genomic files (sequence and gene annotations) of *C.elegans*/*C.briggsae* from [wormbase ftp server](ftp://ftp.wormbase.org/pub/wormbase). **Note:** When the pipeline was originally conceived the version used was WS270
 2. Extract solely the CDS of protein coding genes in fasta format.
 3. For each CDS, create the list of all 20 bp long sequences (overlapping 20-mers) targetting the reverse complement of the CDS.
